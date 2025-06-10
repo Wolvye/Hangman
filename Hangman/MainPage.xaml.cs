@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using Android.Graphics.Text;
+using System.ComponentModel;
 using System.Diagnostics;
 
 namespace Hangman
@@ -55,18 +56,19 @@ namespace Hangman
 
         #region Fields
         List<string> words = new List<string>()
-{
-    "Apfel", "Banane", "Computer", "Drachen", "Einhorn",
-    "Fenster", "Giraffe", "Haus", "Insel", "Junge",
-    "Katze", "Lampe", "Maus", "Nacht", "Orange",
-    "Pferd", "Qualle", "Rose", "Schule", "Tisch",
-    "Uhr", "Vogel", "Wolke", "Xylofon", "Yeti",
-    "Zebra", "Brille", "Flasche", "Glas", "Handy",
-    "Internet", "Jacke", "Kuchen", "Löwe", "Mond",
-    "Nase", "Ozean", "Papier", "Quadrat", "Radio",
-    "Schrank", "Tasse", "Ufer", "Vase", "Wasser",
-    "Xylophon", "Yoga", "Zeitung", "Ampel", "Buch"
-};
+        {
+        "apfel", "banane", "computer", "drachen", "einhorn",
+        "fenster", "giraffe", "haus", "insel", "junge",
+        "katze", "lampe", "maus", "nacht", "orange",
+        "pferd", "qualle", "rose", "schule", "tisch",
+        "uhr", "vogel", "wolke", "xylofon", "yeti",
+        "zebra", "brille", "flasche", "glas", "handy",
+        "internet", "jacke", "kuchen", "löwe", "mond",
+        "nase", "ozean", "papier", "quadrat", "radio",
+        "schrank", "tasse", "ufer", "vase", "wasser",
+        "xylophon", "yoga", "zeitung", "ampel", "buch"
+        };
+
         string answer = "";
         private string sportlight;
         List<char> guessed = new List<char>();
@@ -151,7 +153,7 @@ namespace Hangman
             foreach (var children in LettersContainer.Children)
             {
                 var btn = children as Button;
-                if(btn!=null)
+                if (btn != null)
                 {
                     btn.IsEnabled = false;
                 }
@@ -184,9 +186,9 @@ namespace Hangman
             guessed = new List<char>();
             CurrentImage = "img0.jpg";
             PickWord();
-            CalculateWord(answer,guessed);
+            CalculateWord(answer, guessed);
             Message = "";
-            UpdateStatus(); 
+            UpdateStatus();
             EnableLetters();
         }
     }
